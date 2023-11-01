@@ -1,23 +1,15 @@
 ---
+import Formulario from '../components/Formulario';
 import HeaderTickets from '../components/HeaderTickets.astro';
 import Layout from '../layout/Layout.astro';
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import { nameInput } from '../context/formData';
 ---
 
 <Layout title='Invitación'>
   <HeaderTickets/>
   <div class="contenido">
-    <div class="font-black">Queridos amigos y familiares</div>
-    <div class="w-1/2 mx-auto">
-      <LottieAnimation src="assets/anims/Invitation.json" autoplay="visible"/>
-    </div>
-    <div class="text-justify sm:text-center">Nos complace invitarlos a compartir este momento tan especial con nosotros.</div>
-    <div class="esposo">Jesús Renato Díaz Velázquez</div>
-    <div class="font-black">y</div>
-    <div class="esposa">Alma Delia Maldonado Sanguines</div>
-    <div class="cuerpo">celebrarán sus <span class="azul">25 años</span> de matrimonio con una misa el sábado,<span class="rojo">16 de diciembre de 2023</span>, a las <span class="azul">15:00</span>horas en la Parroquia "Nuestra Señora de la Luz"</div>
-    <!-- <div class="enlace">¡Confirma tu asistencia y adquiere tus boletos aquí!</div>
-    <div class="enlace">¿Dónde se llevará a cabo el evento? Consulta la ubicación aquí.</div> -->
+    <Formulario client:visible/>
+    <!-- <Formulario label={'ROYAL BLOOD'} placeholder={'Texto'}  client:visible/> -->
   </div>
 </Layout>
 
@@ -29,29 +21,8 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
     font-weight: 500;
     font-size: 24px;
     text-align: center;
-  }
-  .esposo{
-    color: var(--primary);
-    font-weight: 900;
-    text-shadow: 2px 2px 6px rgba(35,44,51,0.25);
-  }
-  .esposa{
-    color: var(--secondary);
-    font-weight: 900;
-    text-shadow: 2px 2px 6px rgba(35,44,51,0.25);
-  }
-  .cuerpo{
-    text-align: justify;
-  }
-  .azul{
-    font-weight: bold;
-    color: var(--primary);
-  }
-  .rojo{
-    font-weight: bold;
-    color: var(--secondary);
-  }
-  @media (max-width: 600px) {
+  }  
+@media (max-width: 600px) {
   .contenido {
     font-size: 18px;
   }
