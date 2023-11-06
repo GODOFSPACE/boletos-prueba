@@ -1,9 +1,6 @@
 import { atom } from "nanostores";
 
-export interface FormData {
-  value: string | number;
-  error: boolean;
-}
-
-export const nameInput = atom<FormData>({ value: '', error: true });
-export const numberInput = atom<FormData>({ value: '', error: true });
+export const nameInput = atom<string>('');
+export const numberInput = atom<string>('');
+export const errorName = atom<boolean>(false);
+export const errorNumber = atom<boolean>(false);
