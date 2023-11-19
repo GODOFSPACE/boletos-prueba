@@ -16,12 +16,41 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
     <div class="font-black">y</div>
     <div class="esposa">Alma Delia Maldonado Sanguines</div>
     <div class="cuerpo">celebrarán sus <span class="azul">25 años</span> de matrimonio con una misa el sábado,<span class="rojo">16 de diciembre de 2023</span>, a las <span class="azul">15:00</span>horas en la Parroquia "Nuestra Señora de la Luz"</div>
-    <!-- <div class="enlace">¡Confirma tu asistencia y adquiere tus boletos aquí!</div>
-    <div class="enlace">¿Dónde se llevará a cabo el evento? Consulta la ubicación aquí.</div> -->
+    <div class="my-2 flex flex-col gap-2">
+      <a href="/boletos">
+        ¡Obten tus boletos aquí!
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ticket" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M15 5l0 2"></path>
+          <path d="M15 11l0 2"></path>
+          <path d="M15 17l0 2"></path>
+          <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path>
+        </svg>
+      </a>
+      <a href="/tickets" class="">
+        Consulta la ubicación aquí.
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+          <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+        </svg>
+      </a>
+    </div>
   </div>
 </Layout>
 
 <style>
+  a{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
   .contenido{
     display: flex;
     flex-direction: column;
