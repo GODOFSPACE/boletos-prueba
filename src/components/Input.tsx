@@ -8,9 +8,10 @@ interface InputProps {
   inputData: WritableAtom<string>;
   errorData: WritableAtom<boolean>;
   type: 'text' | 'number';
+  disabled?: boolean;
 }
 
-export default function Input ({label, placeholder, inputData, type, errorData}: InputProps) {
+export default function Input ({label, placeholder, inputData, type, errorData, disabled}: InputProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [activeForm, setActiveForm] = useState<boolean>(false);
   const handleButtonClick = () => {    
@@ -20,11 +21,17 @@ export default function Input ({label, placeholder, inputData, type, errorData}:
   const $error = useStore(errorData); 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-    if(newValue.trim()==='' || newValue===null){   
+    if(newValue.trim()==='' || newValue===null || newValue==='0'){   
       errorData.set(true);
     } else {    
       errorData.set(false);
-    }    
+    }
+    if(type==='number' &&( parseInt(newValue) > 6  || parseInt(newValue) < 1 || newValue.length > 2 )){
+      return;
+    }
+    if(newValue.length > 50){
+      return;
+    }
     inputData.set(newValue);
   };
 
@@ -44,6 +51,7 @@ export default function Input ({label, placeholder, inputData, type, errorData}:
           onBlur={()=>setActiveForm(false)}
           value={$data}
           onChange={handleInputChange}
+          disabled={disabled}
         />  
       </div>
       {
